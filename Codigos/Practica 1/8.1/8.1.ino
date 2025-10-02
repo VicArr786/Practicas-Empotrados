@@ -8,7 +8,7 @@ bool estadoLed = LOW;
 int vecespulsado=0;
 void IRAM_ATTR inter(){
   vecespulsado++;
-  Serial.printf("PULSADOR ACTIVO, vecesactivado : %d \n " , vecespulsado);
+  Serial.printf("[%d]PULSADOR ACTIVO, vecesactivado : %d \n " ,millis() ,vecespulsado);
   
 
 }
