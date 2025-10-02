@@ -1,1 +1,16 @@
-
+6.1
+    Es uno.
+6.2 
+    (3.3-1.7)/5*10~-3 = 320
+6.3
+    Pull up interna
+6.4 
+    En codigo
+6.5
+    Led numero 4 parpadea mucho mas lento 
+    led 5 se actualiza cada 3 sec al pusar el boton es posible que no se acutalize o vaya con lag la actualizacion
+    Solucion:
+        Se puede usar interupciones
+6.6 
+    En Codigo
+7

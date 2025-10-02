@@ -1,16 +1,13 @@
 #define pinRojo 5
-#define pinVerde  
+#define pinVerde 5
 void setup() {
-  pinMode(pinRojo,OUTPUT);
-  pinMod`e(pinVerde,OUTPUT);
+
+  pinMode(pinVerde,OUTPUT);
 
 }
 
 void loop() {
-  digitalWrite(pinRojo,HIGH);
-  delay(500);
-  digitalWrite(pinRojo,LOW);
-  delay(500);
+
   digitalWrite(pinVerde,HIGH);
   delay(500);
   digitalWrite(pinVerde,LOW);
