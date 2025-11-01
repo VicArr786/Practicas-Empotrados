@@ -1,16 +1,19 @@
-
 #define LED_VERDE 5
 #define LED_ROJO 4
 #define BOTON_BOOT 0 
 
  
 bool estadoLed = LOW;    
-int vecespulsado=0;
+volatile int vecespulsado=0;
+volatile long l_ultimaActivacion=0;
+
 void IRAM_ATTR inter(){
   vecespulsado++;
-  Serial.printf("[%d]PULSADOR ACTIVO, vecesactivado : %d \n " ,millis() ,vecespulsado);
-  
+  long l_activacionNueva = millis();
+ 
+  Serial.printf("[%d]PULSADOR ACTIVO, vecesactivado : %d \n " ,l_activacionNueva-l_ultimaActivacion ,vecespulsado);
 
+ l_ultimaActivacion = l_nuevaActivacion;
 }
 
 void setup() {
@@ -28,10 +31,5 @@ void loop() {
   delay(200);
   digitalWrite(LED_ROJO, LOW);
   delay(200);
-
-
-
-
   
 }
-
