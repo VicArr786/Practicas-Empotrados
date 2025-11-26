@@ -9,29 +9,29 @@ const float arrTiempos[] = {1.00, 0.80, 0.60, 0.40, 0.20, 0.0};
 
 void IRAM_ATTR IRS_botonPulsado()
 {
-    vecesPulsado -=1;
-    vecesPulsado=(vecesPulsado==-1)?4:vecesPulsado; // TODO: invertir lógica
-    Serial.printf("[%d] Estado contador: %d, duty asignado: %f\n",millis(), vecesPulsado,*(arrTiempos+vecesPulsado));
+  vecesPulsado -=1;
+  vecesPulsado=(vecesPulsado==-1)?4:vecesPulsado; // TODO: invertir lógica
+  Serial.printf("[%d] Estado contador: %d, duty asignado: %f\n",millis(), vecesPulsado,*(arrTiempos+vecesPulsado));
 }
 
 void setup()
 {
-    Serial.begin(115200);
-    pinMode(BOTON_BOOT,INPUT_PULLUP);
+  Serial.begin(115200);
+  pinMode(BOTON_BOOT,INPUT_PULLUP);
 
-    attachInterrupt
-    (
-      BOTON_BOOT
-      ,IRS_botonPulsado
-      ,FALLING
-    );
+  attachInterrupt
+  (
+    BOTON_BOOT
+    ,IRS_botonPulsado
+    ,FALLING
+  );
 
-    ledcAttach(LEDPIN,FRECBASE,RESOLUCION);
+  ledcAttach(LEDPIN,FRECBASE,RESOLUCION);
 
 }
 
 void loop()
 {
-    ledcWrite(LEDPIN,4095*arrTiempos[vecesPulsado]);
-    delay(1);
+  ledcWrite(LEDPIN,4095*arrTiempos[vecesPulsado]);
+  delay(1);
 }
