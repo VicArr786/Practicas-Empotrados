@@ -51,7 +51,7 @@ void setup()
 
 } 
 
-long l_inicio = micros(); 
+unsigned long l_inicio = micros();
 
 void loop() 
 { 
