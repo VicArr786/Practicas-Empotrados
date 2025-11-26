@@ -16,7 +16,7 @@ volatile uint32_t penultimaPulsacion=0;
 
 void setBlinkFrequency(int hz) {
   if (hz < 2) hz = 2;
-  uint64_t half_us = 500000ULL / hz;
+  uint64_t half_us = 500000 / hz;
   timerAlarm(timer, half_us, true, 0); 
 }
 
