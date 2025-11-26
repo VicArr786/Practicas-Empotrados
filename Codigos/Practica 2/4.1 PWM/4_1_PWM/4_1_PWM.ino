@@ -1,37 +1,43 @@
-#define LEDPIN 4
-#define FRECBASE 100
-#define RESOLUCION 12
-#define BOTON_BOOT 0
+// TFT_eSPI setup.h file for ESP32-S3-DevKitC-1
+// HiLetgo 240X320 Resolution 2.8" SPI TFT LCD Display Touch Panel ILI9341 
 
-volatile int vecesPulsado = 5;
+#define USER_SETUP_INFO "User_Setup"
 
-const float arrTiempos[] = {1.00, 0.80, 0.60, 0.40, 0.20, 0.0};
+#define ILI9341_DRIVER
 
-void IRAM_ATTR IRS_botonPulsado()
-{
-  vecesPulsado -=1;
-  vecesPulsado=(vecesPulsado==-1)?4:vecesPulsado;
-  Serial.printf("[%d] Estado contador: %d, duty asignado: %f\n",millis(), vecesPulsado,*(arrTiempos+vecesPulsado));
-}
+// For ST7735, ST7789 and ILI9341 ONLY, define the colour order IF the blue and red are swapped on your display
+// Try ONE option at a time to find the correct colour order for your display
+//  #define TFT_RGB_ORDER TFT_RGB  // Colour order Red-Green-Blue
+//  #define TFT_RGB_ORDER TFT_BGR  // Colour order Blue-Green-Red
 
-void setup()
-{
-  Serial.begin(115200);
-  pinMode(BOTON_BOOT,INPUT_PULLUP);
+// For ST7789, ST7735, ILI9163 and GC9A01 ONLY, define the pixel width and height in portrait orientation
+#define TFT_WIDTH  240 // ST7789 240 x 240 and 240 x 320
+#define TFT_HEIGHT 320 // ST7789 240 x 320
 
-  attachInterrupt
-  (
-    BOTON_BOOT
-    ,IRS_botonPulsado
-    ,FALLING
-  );
+// If colours are inverted (white shows as black) then uncomment one of the next
+// 2 lines try both options, one of the options should correct the inversion.
 
-  ledcAttach(LEDPIN,FRECBASE,RESOLUCION);
+// #define TFT_INVERSION_ON
+// #define TFT_INVERSION_OFF
 
-}
+#define TFT_CS   10 
+#define TFT_MOSI MOSI 
+#define TFT_SCLK SCK 
+#define TFT_MISO MISO 
 
-void loop()
-{
-  ledcWrite(LEDPIN,4095*arrTiempos[vecesPulsado]);
-  delay(1);
-}
+#define TFT_DC   9
+#define TFT_RST  3
+
+#define LOAD_GLCD
+#define LOAD_FONT2
+#define LOAD_FONT4
+#define LOAD_FONT6
+#define LOAD_FONT7
+#define LOAD_FONT8
+#define LOAD_GFXFF
+
+#define SMOOTH_FONT
+
+#define SPI_FREQUENCY   10000000
+
+#define SPI_TOUCH_FREQUENCY  2500000
