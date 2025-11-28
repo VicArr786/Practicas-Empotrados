@@ -1,0 +1,152 @@
+Index: ../../Practica 1/8.1/8.1.ino
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\n#define LED_VERDE 5\n#define LED_ROJO 4\n#define BOTON_BOOT 0 \n\n \nbool estadoLed = LOW;    \nint vecespulsado=0;\nvoid IRAM_ATTR inter(){\n  vecespulsado++;\n  Serial.printf(\"[%d]PULSADOR ACTIVO, vecesactivado : %d \\n \" ,millis() ,vecespulsado);\n  \n\n}\n\nvoid setup() {\n  pinMode(LED_VERDE, OUTPUT);\n  pinMode(LED_ROJO, OUTPUT);\n  digitalWrite(LED_VERDE, estadoLed);\n  attachInterrupt(BOTON_BOOT , inter,FALLING );\n  Serial.begin(9600,SERIAL_8N1);\n}\n\n\nvoid loop() {\n    \n  digitalWrite(LED_ROJO, HIGH);\n  delay(200);\n  digitalWrite(LED_ROJO, LOW);\n  delay(200);\n\n\n\n\n  \n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../Practica 1/8.1/8.1.ino b/../../Practica 1/8.1/8.1.ino
+--- a/../../Practica 1/8.1/8.1.ino	(revision 95119a9b879d8bdc9a622f02aeb67b19f8d57699)
++++ b/../../Practica 1/8.1/8.1.ino	(date 1762417266988)
+@@ -1,37 +1,115 @@
++#define TAMANHO_MAXIMO_CADENA 20
++typedef struct
++{
++  bool estadoPin;
++  bool cadenaProcesada;
++  bool limpiarBuffer;
++  int32_t tamanhoEntrada; 
++} Config;
++
++int procesarTexto(char* cadena);
++void limpiarBuffer();
++
++Config configuracion =
++{
++  .estadoPin       = false,
++  .cadenaProcesada = false,
++  .limpiarBuffer   = false,
++  .tamanhoEntrada  = TAMANHO_MAXIMO_CADENA
++};
++
++char cadena[TAMANHO_MAXIMO_CADENA];
++int indice_actual = 0;
++
+ 
+-#define LED_VERDE 5
+-#define LED_ROJO 4
+-#define BOTON_BOOT 0 
+ 
+- 
+-bool estadoLed = LOW;    
+-int vecespulsado=0;
+-void IRAM_ATTR inter(){
+-  vecespulsado++;
+-  Serial.printf("[%d]PULSADOR ACTIVO, vecesactivado : %d \n " ,millis() ,vecespulsado);
+-  
++void serialEvent()
++{
++  if(configuracion.limpiarBuffer)
++  {
++    limpiarBuffer();
++    return;
++  }
++
++
++  while(Serial.available())
++  {
++    char car_in = (char)Serial.read();
+ 
++    if(car_in == '\n' || car_in == '\r')
++    {
++        cadena[indice_actual] = '\0';
++        configuracion.cadenaProcesada= true;
++        indice_actual=0;
++        return;
++    }
++    if(indice_actual==(configuracion.tamanhoEntrada-1))
++    {
++      Serial.println("Cadena demasiado larga.");
++      
++      cadena[0] = '\0';
++      indice_actual = 0;
++
++      configuracion.limpiarBuffer=true;
++      break;
++    }
++    cadena[indice_actual] = car_in;
++    indice_actual++;
++  }
+ }
+ 
+ void setup() {
+-  pinMode(LED_VERDE, OUTPUT);
+-  pinMode(LED_ROJO, OUTPUT);
+-  digitalWrite(LED_VERDE, estadoLed);
+-  attachInterrupt(BOTON_BOOT , inter,FALLING );
+-  Serial.begin(9600,SERIAL_8N1);
++  Serial.begin(115200);
++  pinMode(4,OUTPUT);
+ }
+ 
+ 
+-void loop() {
+-    
+-  digitalWrite(LED_ROJO, HIGH);
+-  delay(200);
+-  digitalWrite(LED_ROJO, LOW);
+-  delay(200);
++
++void loop() 
++{
++  if(configuracion.cadenaProcesada)
++  {
++    Serial.printf("Cadena recibida: %s\n",cadena);
+ 
++    int estado = procesarTexto(cadena);
++    Serial.printf("Estado recibido: %d\n",estado);
++    configuracion.estadoPin       = estado==1?1:estado==2?0:configuracion.estadoPin;
++    configuracion.cadenaProcesada = false;
++  }
++  digitalWrite(4,configuracion.estadoPin);
+ 
++}
+ 
+-
+-  
+-}
+-
++int procesarTexto(char* cadena)
++{
++  int ultimoNumero=-1;
++  for(int indiceLectura = 0; indiceLectura < (configuracion.tamanhoEntrada - 1) && cadena[indiceLectura]!='\0'; indiceLectura++)
++  {
++  
++    char caracter = *(cadena + indiceLectura);
++    switch(caracter)
++    {
++      case '1':
++        ultimoNumero=1;
++        break;
++      case '2':
++        ultimoNumero=2;
++        break;
++    }
++  }
++  return ultimoNumero;
++}
++
++void limpiarBuffer()
++{
++  while(Serial.available())
++    {
++      char basura = (char)Serial.read();
++    //  Serial.printf("entro en limpieza, caracter: %c",lectura_sucia);
++      if(basura == '\n' || basura == '\r')
++      {
++        configuracion.limpiarBuffer=false;
++        break;
++      }
++    }
++}
+\ No newline at end of file

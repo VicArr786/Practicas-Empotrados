@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f4dfc493-ae3e-48c4-8877-c31f894c87d7" name="Changes" comment="xdtyfcgvjhbknlm;," />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="main" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "VicArr786"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/VicArr786/Practicas-Empotrados",
+    "accountId": "136c9115-d202-43a3-8278-ac0063dbe45c"
+  }
+}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///home/victorarr/Practicas-Empotrados/Codigos/Prac3/3.1.1/3.1.1.ino" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/victorarr/Practicas-Empotrados/Codigos/Prac3/3.1.1/3.1.1.ino" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/victorarr/Practicas-Empotrados/Codigos/Prac3/3.1.1/3.1.1.ino" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/victorarr/Practicas-Empotrados/Codigos/Prac3/3.1.1/3.1.1.ino" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/victorarr/Practicas-Empotrados/Codigos/Prac3/3.1.1/3.1.1.ino" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/victorarr/Practicas-Empotrados/Codigos/Prac3/3.1.1/3.1.1.ino" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/victorarr/Practicas-Empotrados/Codigos/Practica 1/8.1/8.1.ino" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/victorarr/Practicas-Empotrados/Codigos/Practica 1/8.1/8.1.ino" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/victorarr/Practicas-Empotrados/Codigos/Practica 1/8.1/8.1.ino" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="35f20vA8ZUKNUaUw6XGvvZXMuvj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/victorarr/Practicas-Empotrados/Codigos/Practica 1/8.1/8.1.ino",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f4dfc493-ae3e-48c4-8877-c31f894c87d7" name="Changes" comment="" />
+      <created>1763486585742</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763486585742</updated>
+      <workItem from="1763486587243" duration="329000" />
+    </task>
+    <task id="LOCAL-00001" summary="xdtyfcgvjhbknlm;,">
+      <option name="closed" value="true" />
+      <created>1763486721066</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1763486721066</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="xdtyfcgvjhbknlm;," />
+    <option name="LAST_COMMIT_MESSAGE" value="xdtyfcgvjhbknlm;," />
+  </component>
+</project>
